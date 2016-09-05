@@ -9,13 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var Hero = (function () {
+    function Hero() {
+    }
+    return Hero;
+}());
+exports.Hero = Hero;
+var HEROES = [
+    { id: 11, name: 'Mr.Nice' },
+    { id: 12, name: 'Narco' },
+    { id: 13, name: 'Bombasto' },
+    { id: 14, name: 'Celeritas' },
+    { id: 15, name: 'Magneto' },
+    { id: 16, name: 'Dyna' },
+    { id: 17, name: 'Mr. Noha' },
+    { id: 18, name: 'Magno' },
+    { id: 19, name: 'Tonndo' },
+    { id: 20, name: 'Tinvi' },
+];
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = 'Tour of heroes';
+        this.heroes = HEROES;
     }
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>My First Angular 2-1-3 App</h1>'
+            template: "\n  <h1>{{title}}</h1>\n  <div *ngIf=\"selectedHero\">\n  <h2>{{selectedHero.name}} details!</h2>\n  <div><label>id: </label>{{selectedHero.id}}</div>\n  <div>\n      <label>name: </label>\n      <input [(ngModel)]=\"selectedHero.name\" placeholder=\"name\"/>\n  </div>\n  </div>\n\n\n  <h2>My Heroes</h2>\n  <ul class=\"heroes\">\n    <li *ngFor=\"let hero of heroes\" (click)=\"onSelect(hero)\" [class.selected]=\"hero === selectedHero\">\n      <span class=\"badge\">{{hero.id}}</span> {{hero.name}}\n    </li>\n  </ul>\n\n  \n   "
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
