@@ -15,7 +15,6 @@ import { Hero } from './hero';
             <input [(ngModel)]="hero.name" placeholder="Name">
         </div>
      </div>
-
     `
 })
 
